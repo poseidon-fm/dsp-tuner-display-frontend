@@ -1,3 +1,14 @@
-<div style="margin-top:12px;">
-  <mat-slide-toggle>mono&nbsp;|&nbsp;<span style="color:red;">stereo</span></mat-slide-toggle>
+<div class="colContainer leftAligned centered">
+  <mat-slide-toggle class="toggle" (change)="toggleMonoStereo()">
+    <div class="slideLabel">
+      <span class="toggleLabel" [ngClass]="{'highlighted': monoStereoToggle == monoStereoToggleEnum.mono}">
+        mono
+      </span>
+      &nbsp;
+      <span class="toggleLabel" [ngClass]="{'highlighted': monoStereoToggle == monoStereoToggleEnum.stereo}">
+        stereo
+      </span>
+    </div>
+  </mat-slide-toggle>
 </div>
+

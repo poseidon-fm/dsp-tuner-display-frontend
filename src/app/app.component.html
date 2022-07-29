@@ -6,6 +6,10 @@
   - bandbreedte -> push button (n steps)
   - squelch -> fader
   - fmsi (fm stereo improvement) -> 8 faders + peak level meters
+
+
+  https://auth0.com/blog/building-an-audio-player-app-with-angular-and-rxjs/
+
 -->
 
 <div id="main">
@@ -13,13 +17,13 @@
     <div class="container">
       <div id="temp" style="height:100px;"></div>
       <div class="row">
-        <div class="col col-md-4">
+        <div class="col col-md-4" style="border: 1px solid green">
           <app-squelch></app-squelch>
         </div>
-        <div class="col col-md-4">
+        <div class="col col-md-4" style="border: 1px solid green">
           <app-mono-stereo></app-mono-stereo>
         </div>
-        <div class="col col-md-4"><!--column 3--></div>
+        <div class="col col-md-4" style="border: 1px solid green"><!--column 3--></div>
       </div>
     </div>
   </div>

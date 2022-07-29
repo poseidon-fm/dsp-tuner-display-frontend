@@ -21,7 +21,24 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/'
   top: 0
   left: 0
   background-color: #000
-  color: #cccccc
+  color: silver
 
 .container
   position: relative
+
+.colContainer
+  &.leftAligned
+    display: inline-block
+
+  &.centered
+    text-align: center
+
+
+/* TODO: needs to be replaced to somewhere else */
+.toggleLabel
+  clear: both
+  display: inline-block
+
+  &.highlighted
+    color: red
+
