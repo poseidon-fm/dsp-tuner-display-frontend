@@ -30,6 +30,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/sass/mat-slider.sass",
+              "src/sass/mat-slide-toggle.sass",
               "src/sass/styles.sass"
             ],
             "scripts": []

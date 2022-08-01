@@ -19,8 +19,8 @@ import {MonoStereoComponent} from './mono-stereo/mono-stereo.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MatSliderModule,
     MatSlideToggleModule
   ],
