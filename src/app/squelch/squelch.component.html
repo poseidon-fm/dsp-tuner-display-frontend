@@ -1,10 +1,9 @@
-<div class="colContainer leftAligned centered">
-  <div class="matSlider">
-    <p>squelch</p>
-    <mat-slider color="warn" min="0" max="100" step="1" value="50"></mat-slider>
+<div class="colContainer leftAligned">
+  <div class="matSlider horizontal">
+    <p class="matSliderType" style="margin-left:42px !important">squelch</p>
+    <mat-slider color="warn" min="0" max="100" step="1" value="{{ squelchValue }}"
+                (input)="onSquelchChange($event)"></mat-slider>
+    <span class="matSliderValue">{{ squelchValue }}</span>
   </div>
-
-  <br/>
-  <mat-slider vertical color="warn" min="0" max="100" step="1" value="50"></mat-slider>
-  <p>eq 1</p>
+  <input type="number" [(ngModel)]="squelchValue">
 </div>
