@@ -19,13 +19,15 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {SquelchComponent} from './squelch/squelch.component';
 import {MonoStereoComponent} from './mono-stereo/mono-stereo.component';
 import {FmsiComponent} from './fmsi/fmsi.component';
+import {RadioDetailsComponent} from "./radio-details/radio-details.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     SquelchComponent,
     MonoStereoComponent,
-    FmsiComponent
+    FmsiComponent,
+    RadioDetailsComponent
   ],
   imports: [
     HttpClientModule,

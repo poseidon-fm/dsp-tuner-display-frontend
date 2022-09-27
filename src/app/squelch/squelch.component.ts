@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatSliderChange} from "@angular/material/slider";
 
 @Component({
-  selector: 'app-squelch',
+  selector: 'squelch-component',
   templateUrl: './squelch.component.html',
   styleUrls: ['./squelch.component.sass']
 })

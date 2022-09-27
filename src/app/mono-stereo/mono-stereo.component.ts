@@ -5,7 +5,7 @@ export enum MonoStereoToggle {
 }
 
 @Component({
-  selector: 'app-mono-stereo',
+  selector: 'mono-stereo-component',
   templateUrl: './mono-stereo.component.html',
   styleUrls: ['./mono-stereo.component.sass']
 })
