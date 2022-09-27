@@ -24,4 +24,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI use `ng help` or go check out
+the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# npm updates and upgrades
+
+Run `npm outdated` to get a list of dependencies that are out of date
+Run `npm update` safely updated dependencies to the `wanted` version
+
+Run `npm install <packagename>@latest` to upgrade to the latest major version of a package
+or
+Run `npx npm-check-updates -u` to upgrade all the dependencies, including major version changes
+Run 'npm install' to let the `npx npm-check-updates -u` take effect
