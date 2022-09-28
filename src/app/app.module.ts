@@ -20,6 +20,7 @@ import {SquelchComponent} from './squelch/squelch.component';
 import {MonoStereoComponent} from './mono-stereo/mono-stereo.component';
 import {FmsiComponent} from './fmsi/fmsi.component';
 import {RadioDetailsComponent} from "./radio-details/radio-details.component";
+import {PingPongComponent} from "./ping-pong/ping-pong.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {RadioDetailsComponent} from "./radio-details/radio-details.component";
     SquelchComponent,
     MonoStereoComponent,
     FmsiComponent,
-    RadioDetailsComponent
+    RadioDetailsComponent,
+    PingPongComponent
   ],
   imports: [
     HttpClientModule,
