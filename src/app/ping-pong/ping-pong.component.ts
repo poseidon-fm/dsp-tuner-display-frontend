@@ -8,7 +8,7 @@ const GET_PING_PONG = gql`
       name
     }
   }
-`;
+`
 
 @Component({
   selector: 'ping-pong-component',
@@ -16,13 +16,13 @@ const GET_PING_PONG = gql`
     <div *ngIf="pong">
       <p>Ping: {{ pong.name }}</p>
     </div>
-  `,
+  `
 })
 
 export class PingPongComponent implements OnInit, OnDestroy {
-  pong: any;
+  pong: any
 
-  private querySubscription: Subscription | undefined;
+  private querySubscription: Subscription | undefined
 
   constructor(private apollo: Apollo) {
   }
@@ -37,11 +37,11 @@ export class PingPongComponent implements OnInit, OnDestroy {
       })
       .valueChanges
       .subscribe(({data}) => {
-        this.pong = data.ping;
+        this.pong = data.ping
       });
   }
 
   ngOnDestroy() {
-    this.querySubscription?.unsubscribe();
+    this.querySubscription?.unsubscribe()
   }
 }

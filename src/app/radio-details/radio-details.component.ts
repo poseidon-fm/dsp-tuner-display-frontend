@@ -1,47 +1,59 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component} from '@angular/core';
 import {Apollo, gql} from 'apollo-angular';
 
-const GET_PING_PONG = gql`
-  query PingPong($pongVersion: Int!) {
-    ping(pongVersion: $pongVersion) {
-      name
+const NEW_RADIO_DETAILS_SUBSCRIPTION = gql`
+  subscription OnNewRadioDetails {
+    onNewRadioDetails {
+      radioId,
+      settings {
+        squelch,
+        stereo
+      },
+      data {
+        signalStrength
+      }
     }
   }
-`;
+`
 
 @Component({
   selector: 'radio-details-component',
   template: `
-    <div *ngIf="pong">
-      <p>Ping: {{ pong.name }}</p>
+    <div *ngIf="radioDetails">
+      <p>RadioId: {{ radioDetails.radioId }}</p>
+      <p>Settings:</p>
+      <p>Squelch: {{ radioDetails.settings.squelch }}</p>
+      <p>Stereo: {{ radioDetails.settings.stereo === true ? 'ja' : 'nee'}}</p>
+      <p>Data:</p>
+      <p>Signaalsterkte: {{ radioDetails.data.signalStrength }}</p>
     </div>
-  `,
+  `
 })
 
-export class RadioDetailsComponent implements OnInit, OnDestroy {
-  pong: any;
-
-  private querySubscription: Subscription | undefined;
+export class RadioDetailsComponent { // implements OnInit, OnDestroy
+  radioDetails: any
 
   constructor(private apollo: Apollo) {
+    apollo.subscribe({
+      query: NEW_RADIO_DETAILS_SUBSCRIPTION,
+      // variables: {},
+      /*
+        accepts options like `errorPolicy` and `fetchPolicy`
+      */
+    }).subscribe((result) => {
+      console.log(result)
+      // @ts-ignore
+      if (result.data?.onNewRadioDetails) {
+        // @ts-ignore
+        this.radioDetails = result.data?.onNewRadioDetails
+      }
+    });
   }
 
-  ngOnInit() {
-    this.querySubscription = this.apollo
-      .watchQuery<any>({
-        query: GET_PING_PONG,
-        variables: {
-          pongVersion: 0
-        }
-      })
-      .valueChanges
-      .subscribe(({data}) => {
-        this.pong = data.ping;
-      });
-  }
+  // ngOnInit() {
+  // }
 
-  ngOnDestroy() {
-    this.querySubscription?.unsubscribe();
-  }
+  // ngOnDestroy() {
+  // }
+
 }
