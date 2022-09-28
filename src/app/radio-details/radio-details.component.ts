@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Apollo, gql} from 'apollo-angular';
+import {Component, OnInit} from '@angular/core'
+import {Apollo, gql} from 'apollo-angular'
 
 const NEW_RADIO_DETAILS_SUBSCRIPTION = gql`
   subscription OnNewRadioDetails {
@@ -13,8 +13,7 @@ const NEW_RADIO_DETAILS_SUBSCRIPTION = gql`
         signalStrength
       }
     }
-  }
-`
+  }`
 
 @Component({
   selector: 'radio-details-component',
