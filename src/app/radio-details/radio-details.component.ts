@@ -5,7 +5,7 @@ import {Apollo, gql} from 'apollo-angular';
 const GET_PING_PONG = gql`
   query PingPong($pongVersion: Int!) {
     ping(pongVersion: $pongVersion) {
-      pong
+      name
     }
   }
 `;
@@ -14,7 +14,7 @@ const GET_PING_PONG = gql`
   selector: 'radio-details-component',
   template: `
     <div *ngIf="pong">
-      <p>Ping: {{ pong }}</p>
+      <p>Ping: {{ pong.name }}</p>
     </div>
   `,
 })
@@ -37,7 +37,7 @@ export class RadioDetailsComponent implements OnInit, OnDestroy {
       })
       .valueChanges
       .subscribe(({data}) => {
-        this.pong = data.ping.pong;
+        this.pong = data.ping;
       });
   }
 
