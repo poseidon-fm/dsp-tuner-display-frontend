@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Apollo, gql} from 'apollo-angular';
 
 const NEW_RADIO_DETAILS_SUBSCRIPTION = gql`
@@ -30,11 +30,14 @@ const NEW_RADIO_DETAILS_SUBSCRIPTION = gql`
   `
 })
 
-export class RadioDetailsComponent { // implements OnInit, OnDestroy
+export class RadioDetailsComponent implements OnInit { //, OnDestroy
   radioDetails: any
 
   constructor(private apollo: Apollo) {
-    apollo.subscribe({
+  }
+
+  ngOnInit() {
+    this.apollo.subscribe({
       query: NEW_RADIO_DETAILS_SUBSCRIPTION,
       // variables: {},
       /*
@@ -49,11 +52,5 @@ export class RadioDetailsComponent { // implements OnInit, OnDestroy
       }
     });
   }
-
-  // ngOnInit() {
-  // }
-
-  // ngOnDestroy() {
-  // }
 
 }
