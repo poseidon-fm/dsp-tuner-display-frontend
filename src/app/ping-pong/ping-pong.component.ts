@@ -14,7 +14,7 @@ const GET_PING_PONG = gql`
   selector: 'ping-pong-component',
   template: `
     <div *ngIf="pong">
-      <p>PingPong: {{ pong.name }}</p>
+      <p>Ping: {{ pong.name }}</p>
     </div>
   `,
 })

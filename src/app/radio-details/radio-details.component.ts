@@ -32,7 +32,7 @@ export class RadioDetailsComponent implements OnInit, OnDestroy {
       .watchQuery<any>({
         query: GET_PING_PONG,
         variables: {
-          pongVersion: 1
+          pongVersion: 0
         }
       })
       .valueChanges
