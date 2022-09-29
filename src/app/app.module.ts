@@ -19,9 +19,9 @@ import {FormsModule} from "@angular/forms";
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
-import {SquelchComponent} from './settings/squelch/squelch.component';
-import {MonoStereoComponent} from './settings/mono-stereo/mono-stereo.component';
-import {FmsiComponent} from './mixed/fmsi/fmsi.component';
+import {SquelchComponent} from './radio-details/settings/squelch/squelch.component';
+import {MonoStereoComponent} from './radio-details/settings/mono-stereo/mono-stereo.component';
+import {FmsiComponent} from './radio-details/mixed/fmsi/fmsi.component';
 import {PingPongComponent} from "./ping-pong/ping-pong.component";
 import {Kind, OperationTypeNode} from "graphql/language";
 import {RadioDetailsModule} from "./radio-details/radio-details.module";

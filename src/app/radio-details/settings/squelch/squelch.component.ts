@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatSliderChange} from "@angular/material/slider";
 import {Subscription} from "rxjs";
-import {RadioDetailsService} from "../../radio-details/radio-details.service";
+import {RadioDetailsService} from "../../radio-details.service";
 
 @Component({
   selector: 'squelch-component',
