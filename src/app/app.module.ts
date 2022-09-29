@@ -19,12 +19,13 @@ import {FormsModule} from "@angular/forms";
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
-import {SquelchComponent} from './squelch/squelch.component';
-import {MonoStereoComponent} from './mono-stereo/mono-stereo.component';
-import {FmsiComponent} from './fmsi/fmsi.component';
-import {RadioDetailsComponent} from "./radio-details/radio-details.component";
+import {SquelchComponent} from './settings/squelch/squelch.component';
+import {MonoStereoComponent} from './settings/mono-stereo/mono-stereo.component';
+import {FmsiComponent} from './mixed/fmsi/fmsi.component';
 import {PingPongComponent} from "./ping-pong/ping-pong.component";
 import {Kind, OperationTypeNode} from "graphql/language";
+import {RadioDetailsModule} from "./radio-details/radio-details.module";
+import {RadioDetailsService} from "./radio-details/radio-details.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,6 @@ import {Kind, OperationTypeNode} from "graphql/language";
     SquelchComponent,
     MonoStereoComponent,
     FmsiComponent,
-    RadioDetailsComponent,
     PingPongComponent
   ],
   imports: [
@@ -43,7 +43,9 @@ import {Kind, OperationTypeNode} from "graphql/language";
     AppRoutingModule,
     FormsModule,
     MatSliderModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    RadioDetailsModule,
+    RadioDetailsService
   ],
   providers: [
     {

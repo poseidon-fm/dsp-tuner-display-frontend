@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core'
 import {gql, Query} from 'apollo-angular'
 
-export type Pong = {
+export interface Pong {
   name: string
 }
 
