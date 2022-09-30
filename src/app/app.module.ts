@@ -26,6 +26,7 @@ import {PingPongComponent} from "./ping-pong/ping-pong.component";
 import {Kind, OperationTypeNode} from "graphql/language";
 import {RadioDetailsModule} from "./radio-details/radio-details.module";
 import {RadioDetailsService} from "./radio-details/radio-details.service";
+import {DirtyFlagComponent} from "./templates/dirty-flag.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {RadioDetailsService} from "./radio-details/radio-details.service";
     SquelchComponent,
     MonoStereoComponent,
     FmsiComponent,
-    PingPongComponent
+    PingPongComponent,
+    DirtyFlagComponent
   ],
   imports: [
     HttpClientModule,

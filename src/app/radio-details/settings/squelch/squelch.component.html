@@ -1,9 +1,11 @@
 <div class="colContainer leftAligned">
   <div class="matSlider horizontal">
-    <p class="matSliderType" style="margin-left:42px !important">squelch</p>
+    <p class="matSliderType" style="margin-left:42px !important">squelch
+      <dirty-flag [flag]=squelchDirty></dirty-flag>
+    </p>
     <mat-slider color="warn" min="0" max="100" step="1" value="{{ squelchValue }}"
                 (input)="onSquelchChange($event)"></mat-slider>
     <span class="matSliderValue">{{ squelchValue }}</span>
   </div>
-  <input type="number" [(ngModel)]="squelchValue">
+  <!--<input type="number" [(ngModel)]="squelchValue">-->
 </div>
