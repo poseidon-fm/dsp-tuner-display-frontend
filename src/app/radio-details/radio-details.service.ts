@@ -1,7 +1,7 @@
 import {Injectable, NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {Subject} from "rxjs";
-import {RadioDetails} from "./radio-details-interface";
+import {RadioDetails} from "./radio-details.interface";
 
 @NgModule({
   imports: [

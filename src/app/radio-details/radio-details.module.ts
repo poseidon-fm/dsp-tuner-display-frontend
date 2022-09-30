@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Apollo} from "apollo-angular";
-import {NEW_RADIO_DETAILS_SUBSCRIPTION} from "./radio-details-subscription";
-import {RadioDetails} from "./radio-details-interface";
+import {NEW_RADIO_DETAILS_SUBSCRIPTION} from "./radio-details.subscription";
+import {RadioDetails} from "./radio-details.interface";
 import {RadioDetailsService} from "./radio-details.service";
 
 @NgModule({
@@ -22,11 +22,14 @@ export class RadioDetailsModule {
       /*
         accepts options like `errorPolicy` and `fetchPolicy`
       */
-    }).subscribe((result) => {
-      // @ts-ignore
-      this.radioDetails = result.data?.onNewRadioDetails
-      // @ts-ignore
-      radioDetailsService.updateRadioDetails(result.data?.onNewRadioDetails)
+    }).subscribe({
+      next: (result) => {
+        // @ts-ignore
+        this.radioDetails = result.data?.onNewRadioDetails
+        // @ts-ignore
+        radioDetailsService.updateRadioDetails(result.data?.onNewRadioDetails)
+      },
+      error: (e) => console.log(e)
     });
   }
 }
