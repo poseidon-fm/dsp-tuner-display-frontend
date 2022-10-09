@@ -2,8 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatSliderChange} from "@angular/material/slider";
 import {Subscription} from "rxjs";
 import {RadioDetailsService} from "../../radio-details.service";
-import {SetSquelchGQL} from "./squelch.mutation";
-import {v4 as uuid} from 'uuid'
 
 @Component({
   selector: 'squelch-component',
@@ -18,7 +16,7 @@ export class SquelchComponent implements OnInit, OnDestroy {
   squelchDirty: boolean = true
   subscription: Subscription | undefined
 
-  constructor(private radioDetailsService: RadioDetailsService, private setSquelchGQL: SetSquelchGQL) {
+  constructor(private radioDetailsService: RadioDetailsService) {
   }
 
   ngOnInit(): void {
@@ -34,12 +32,14 @@ export class SquelchComponent implements OnInit, OnDestroy {
   onSquelchChange(event: MatSliderChange) {
     this.squelchValue = event.value || 0
     this.squelchDirty = true
-    this.setSquelchGQL.mutate(
-      {
-        val: event.value,
-        commandId: uuid()
-      }
-    ).subscribe()
+
+    // TODO: add value to Change Settings Dispatcher
+    // this.setSquelchGQL.mutate(
+    //   {
+    //     val: event.value,
+    //     commandId: uuid()
+    //   }
+    // ).subscribe()
 
   }
 

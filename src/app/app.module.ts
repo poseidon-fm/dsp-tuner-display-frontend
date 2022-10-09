@@ -25,8 +25,8 @@ import {FmsiComponent} from './radio-details/mixed/fmsi/fmsi.component';
 import {PingPongComponent} from "./ping-pong/ping-pong.component";
 import {Kind, OperationTypeNode} from "graphql/language";
 import {RadioDetailsModule} from "./radio-details/radio-details.module";
-import {RadioDetailsService} from "./radio-details/radio-details.service";
 import {DirtyFlagComponent} from "./templates/dirty-flag.component";
+import {ChangeSettingsDispatcherModule} from "./change-settings-dispatcher/change-settings-dispatcher.module";
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import {DirtyFlagComponent} from "./templates/dirty-flag.component";
     MatSliderModule,
     MatSlideToggleModule,
     RadioDetailsModule,
-    RadioDetailsService
+    ChangeSettingsDispatcherModule
   ],
   providers: [
     {

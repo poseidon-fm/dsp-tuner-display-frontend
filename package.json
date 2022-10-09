@@ -22,6 +22,7 @@
     "@angular/router": "^14.2.3",
     "@apollo/client": "^3.6.9",
     "apollo-angular": "^4.0.1",
+    "async-mutex": "^0.4.0",
     "bootstrap-sass": "^3.4.3",
     "graphql": "^16.6.0",
     "graphql-ws": "^5.11.2",
