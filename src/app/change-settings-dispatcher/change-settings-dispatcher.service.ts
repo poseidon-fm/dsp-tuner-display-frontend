@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {v4 as uuid} from "uuid";
 import {SetSettingsDispatcherGQL} from "./change-settings-dispatcher.mutation";
-import {ChangeSetting, SettingType} from "./change-settings-dispatcher.interface";
+import {ChangeSetting} from "./change-settings-dispatcher.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -16,28 +15,39 @@ export class ChangeSettingsDispatcherService {
 
     let commandId = 0;
 
-    //setInterval(() => {
-    commandId++
-
-    this.addChange({
-      radioId: uuid(),
-      type: SettingType.SQUELCH,
-      val: "A value " + uuid(),
-      commandId: commandId
-    } as ChangeSetting)
-
-    this.setSettingsDispatcherGQL.mutate(
-      {
-        changeSettings: this.changes
+    setInterval(() => {
+      commandId++
+      if (this.changes.length > 0) {
+        this.setSettingsDispatcherGQL.mutate(
+          {
+            changeSettings: [...this.changes]
+          }
+        ).subscribe()
+        this.changes = []
       }
-    ).subscribe()
-
-    //}, 10000)
+    }, 100)
 
   }
 
-  addChange(changeSetting: ChangeSetting) {
-    this.changes.push(changeSetting)
+  updateChange(changeSetting: ChangeSetting) {
+    let existingChangeForTypeFound = false;
+    this.changes.forEach((change) => {
+      if (change.type === changeSetting.type) {
+
+        // TODO: commandId moet hier uitegerekend worden ipv in Squelch Change Service
+
+        change.val = changeSetting.val
+        existingChangeForTypeFound = true
+        return
+      }
+    })
+    if (!existingChangeForTypeFound) {
+
+      // TODO: commandId moet hier uitegerekend worden ipv in Squelch Change Service
+
+      this.changes.push(changeSetting)
+    }
+
   }
 
 }
